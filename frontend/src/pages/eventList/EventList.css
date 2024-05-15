@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.title {
+  text-align: left;
+  font-weight: 500;
+}
+
+.switch-wrapper {
+  display: flex;
+  margin-top: 8px;
+}
+
+.switch-wrapper-text {
+  width: 160px;
+  text-align: left;
+}

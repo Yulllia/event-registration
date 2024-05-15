@@ -1,0 +1,22 @@
+.register-container {
+    text-align: left;
+}
+.register {
+    padding-left: 0;
+}
+.register-container h2 {
+    margin-bottom: 25px;
+}
+.form-item-label {
+    margin-bottom: 24px;
+}
+.date-picker {
+   width: 224px
+}
+.label {
+    width: 90px;
+    text-align: left;
+}
+.register-container :where(.css-dev-only-do-not-override-n0gjrg).ant-form-item .ant-form-item-label >label::after {
+    display: none;
+}
