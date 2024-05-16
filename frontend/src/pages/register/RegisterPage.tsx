@@ -9,6 +9,7 @@ import { generateRules } from "../../utils/utils";
 function RegisterPage() {
   const { eventId } = useParams();
   const [form] = Form.useForm();
+
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },

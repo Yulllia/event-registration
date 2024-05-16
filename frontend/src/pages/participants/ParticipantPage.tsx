@@ -1,4 +1,4 @@
-import { Button, Input } from "antd";
+import { Button, Input, Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Chart, RegisteredI } from "../../interfaces/interface";
@@ -13,8 +13,10 @@ function ParticipantPage() {
   const [search, setSearch] = useState<string>("");
   const [showSearchContainer, setShowSearchContainer] = useState<boolean>(true);
   const [chartData, setChartData] = useState<Chart[]>([]);
+  const [isLoading, setIsLoading] =  useState<boolean>(false);
 
   const fetchData = async () => {
+    setIsLoading(true)
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_REACT_APP_API}/register/${eventId}`,
@@ -26,14 +28,21 @@ function ParticipantPage() {
       );
       setRegisteredUser(response.data.data);
       setChartData(response.data.chart); 
-      setShowSearchContainer(response.data.count > 0); 
+      setShowSearchContainer(response.data.count > 1); 
     } catch (error) {
       console.error("Error fetching data:", error);
-    } 
+    } finally {
+      setIsLoading(false)
+    }
   };
+
   useEffect(() => {
     fetchData();
   }, [eventId]);
+
+  if(isLoading){
+    return <Spin/>
+  }
 
 
   return (
